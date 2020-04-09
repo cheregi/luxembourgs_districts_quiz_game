@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Bitter&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+/* Photo by 1905 Travellers on Unsplash 
+https://unsplash.com/photos/Y_kNtEogvsM */
+
+
+body {
+    /* font-family: 'Josefin Sans'; */
+    background: url('1905-travellers-Y_kNtEogvsM-unsplash.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+  
+#p {
+    font-family: 'Josefin Sans'; 
+}
+span#cities {
+    font-family: 'Josefin Sans'; 
+    text-shadow: none;
+    font-weight: 100;
+}
+#grid {
+    font-family: 'Bitter'; 
+}
+
+h1 {
+    font-size: 3em;
+}
+
+p {
+  font-size: 1.3em;
+}
+
+h1, h2 {
+    font-family: 'Bitter';
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+.hover:hover {
+  stroke: #646464 !important;
+  stroke-width: 7px !important;
+  cursor: pointer;
+}
+
+div#filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    z-index: -1;
+    position: fixed;
+}
+
+#grid {
+display: grid;
+grid-template-columns: -1fr -1fr;
+/* grid-template-row: 100%; */
+}
+
+#luxembourg {
+    position: absolute;
+  }
+
+#text{
+    text-align: right;
+}
+  
+  #timer, #score {
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 20px;
+    padding: 20px;
+    border: none;
+  }
+  #text{
+      margin-right: 25%;
+  }
+  p {
+    margin-bottom: 50px;
+  }
+  .hidden{
+    display: none;
+  }
+  
+  .cityColor{
+    /* display: none; */
+    fill: #C9D4E9;
+  }
+  .wrongAnswer{
+    stroke: #d6373f ;
+    stroke-width: 7px;
+  }
+ 
+
+  
