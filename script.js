@@ -17,10 +17,10 @@ let cities = [
     "eschSurAlzette", 
     "Remich" ];
 
-// All the cities from the map Shuffled
+// All the cities from the map to be Shuffled
 let citiesToShuffle =  cities.slice();
 
-// All the cities flags
+// All the districts flags
 let citiesFlags = [
   "districts/1.Coat_of_arms_clervaux_luxbrg.png", 
   "districts/2.Coat_of_arms_wiltz_luxbrg.png", 
@@ -50,7 +50,7 @@ let interval = setInterval(function() {
     timer.style.color = "#d6373f"
   } else {
     timer.innerHTML = "00:00"
-    lose()
+        lose();
   }
   seconds--
 }, 1000)
@@ -72,9 +72,9 @@ let handlerEvent = function (e) {
       let colors = ["#7bc5e0", "#e5898e", "#faf8f2"];
       e.target.style.fill = colors[Math.floor(Math.random() * colors.length)];
 
-      // city index for finding the corresponding flag
-      var cityIndex=-1;
-      for(var i=0;i<cities.length;i++){
+      // district index for finding the corresponding flag
+      let cityIndex=-1;
+      for(let i=0;i<cities.length;i++){
         if(cities[i]==theCity){
           cityIndex=i;
           break;
@@ -88,10 +88,10 @@ let handlerEvent = function (e) {
       districtFlag.setAttribute("src", flagForCorrectAnswer);
 
       // collect all the flags into container when user responds correctly
-      var div = document.createElement('div');
-      div.innerHTML = cities[cityIndex];
-      div.appendChild(districtFlag);
-      document.getElementById('flagContainer').appendChild(div);
+      const flagContainer = document.createElement('div');
+      flagContainer.innerHTML = cities[cityIndex];
+      flagContainer.appendChild(districtFlag);
+      document.getElementById('flagContainer').appendChild(flagContainer);
 
       // display the district name on the map when user clicked on the correct district
       const name = 'Name';
@@ -99,6 +99,8 @@ let handlerEvent = function (e) {
       let goodAnswerElement = document.getElementById(correctAnswerNameId);
       goodAnswerElement.setAttribute('class', 'cityName');
       
+      console.log(count);
+     
       count++;
       if (count == cities.length) {
         win();
@@ -121,15 +123,13 @@ let handlerEvent = function (e) {
  
 };
 
-var elements = document.getElementsByClassName("cityColor");
+const elements = document.getElementsByClassName("cityColor");
 
-for (var i = 0; i < elements.length; i++) {
+for (let i = 0; i < elements.length; i++) {
   elements[i].addEventListener('click', handlerEvent, false);
 }
 
-// Fills in provinces that have been correctly clicked on and updates score
-// document.querySelector(".cityColor ").addEventListener('click', e => {
-
+// Fills in provinces that have been correctly clicked on and updates the score
 
 function deleteBorderColorBadAnswer(){
   
@@ -144,17 +144,35 @@ function init() {
     shuffle(citiesToShuffle);
     display();
 }
+
 // Display a new province and update the score
 function display() {
     citiesDisplay.innerHTML = citiesToShuffle[count];
+    if(citiesDisplay.innerHTML == 'undefined'){
+      // citiesDisplay.innerHTML = "";
+      citiesDisplay.style.color = "#d6373f";
+      citiesDisplay.innerHTML = "You won!";
+
+    }
     score.innerHTML = count + " / " + citiesToShuffle.length;
    
 }
 // Stop the timer and display win message
 function win() {
   clearInterval(interval);
-  citiesDisplay.style.color = "#d6373f";
-  citiesDisplay.innerHTML = "You won!";
+  // citiesDisplay.style.color = "#d6373f";
+  // citiesDisplay.innerHTML = "You won!";
+  let happyDuke = document.querySelector(".theDuke");
+  happyDuke.src =  "happy-duke.gif";
+  let infoNotNecessaryIfWin = document.querySelector("p");
+  infoNotNecessaryIfWin.style.display="none";
+  // let moreSpaceZ = document.querySelector("span#cities");
+  let buttonContainer = document.querySelector("h1");
+  const buttonPlay = document.createElement("a");
+  buttonPlay.setAttribute('class', 'btn-gradient cyan mini');
+  buttonPlay.innerHTML = "Play Again";
+  buttonContainer.append(buttonPlay);
+
 }
 
 // Stop the timer and display lose message
@@ -163,11 +181,23 @@ function lose() {
     timer.style.color = "#d6373f";
     citiesDisplay.style.color = "#d6373f";
     citiesDisplay.innerHTML = "Sorry, out of time!";
+    let infoNotNecessaryIfLose = document.querySelector("p");
+    infoNotNecessaryIfLose.style.display="none";
+    let moreSpaceY = document.querySelector("h1");
+    const buttonPlay = document.createElement("a");
+    buttonPlay.setAttribute('class', 'btn-gradient cyan mini');
+    buttonPlay.innerHTML = "Play Again";
+    moreSpaceY.append(buttonPlay);
+    let sadDuke = document.querySelector(".theDuke");
+    sadDuke.src =  "wave-duke.gif";
+    let blockMap = document.querySelector("#luxembourg");
+    blockMap.style.pointerEvents="none";
+    
   }
   
 // Array shuffle algorithm from https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
 function shuffle(a) {
-    var j, x, i;
+    let j, x, i;
     for (i = a.length - 1; i > 0; i--) {
         j = Math.floor(Math.random() * (i + 1));
         x = a[i];
@@ -176,3 +206,9 @@ function shuffle(a) {
     }
     return a;
 }
+
+// Restart game Button Play
+// TO DO:
+
+// Code refactoring 
+// TO DO:

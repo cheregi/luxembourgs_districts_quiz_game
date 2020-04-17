@@ -62,34 +62,82 @@ grid-template-columns: -1fr -1fr;
     position: absolute;
   }
 
+  
+#timer, #score {
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 20px;
+  padding: 20px;
+  border: none;
+}
+
 #text{
     text-align: right;
+    margin-right:5%;
+}
+
+p {
+  margin-bottom: 50px;
+}
+
+.hidden{
+  display: none;
+}
+
+.cityColor{
+  /* display: none; */
+  fill: #C9D4E9;
+}
+
+.wrongAnswer{
+  stroke: #d6373f ;
+  stroke-width: 7px;
+}
+
+#flagContainer{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(85px, 1fr)); /* see notes below */
+  grid-gap: 1em;
+}
+
+
+ 
+img.districtFlag {
+  width: 35%;
+  height: auto;
+  flex:  1 35%;
 }
   
-  #timer, #score {
-    background-color: rgba(255, 255, 255, 0.75);
-    border-radius: 20px;
-    padding: 20px;
-    border: none;
-  }
-  #text{
-      margin-right: 25%;
-  }
-  p {
-    margin-bottom: 50px;
-  }
-  .hidden{
-    display: none;
-  }
-  
-  .cityColor{
-    /* display: none; */
-    fill: #C9D4E9;
-  }
-  .wrongAnswer{
-    stroke: #d6373f ;
-    stroke-width: 7px;
-  }
- 
+.btn-gradient.mini
+{
+  padding: 4px 12px;  
+  font-size: 12px;
+}
+
+.rounded {
+  border-radius: 10px;
+}
+
+/* Gradient buttons */
+.btn-gradient {
+	text-decoration: none;
+	color: white;
+	padding: 10px 30px;
+	display: inline-block;
+	position: relative;
+	border: 1px solid rgba(0,0,0,0.21);
+	border-bottom: 4px solid rgba(0,0,0,0.21);
+	border-radius: 4px;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+}
+
+.btn-gradient.cyan {
+  background: rgba(123, 197, 224,1);
+  font-family: 'Josefin Sans'; 
+}
+
+.btn-gradient.cyan:active	{
+  background: #4094b2;
+}
+
 
   
