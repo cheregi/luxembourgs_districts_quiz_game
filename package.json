@@ -1,0 +1,27 @@
+{
+  "name": "luxembourgs_districts_quiz_game",
+  "version": "0.0.1",
+  "description": "A fun quiz game to test your knowledge of luxembourgs districts",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cheregi/luxembourgs_districts_quiz_game.git"
+  },
+  "keywords": [
+    "quiz",
+    "game",
+    "luxembourg",
+    "districts",
+    "javascript",
+    "education"
+  ],
+  "author": "cheregi <dianacheregi@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cheregi/luxembourgs_districts_quiz_game/issues"
+  },
+  "homepage": "https://github.com/cheregi/luxembourgs_districts_quiz_game#readme"
+}
