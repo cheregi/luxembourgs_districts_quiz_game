@@ -4,7 +4,8 @@
   "description": "A fun quiz game to test your knowledge of luxembourgs districts",
   "main": "script.js",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint ./src/**/**"
+    "lint": "./node_modules/.bin/eslint ./src/**/**",
+    "build": "rollup -c ./scripts/dist.js"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-plugin-standard": "^4.0.1",
+    "rollup": "2.7.2"
   }
 }

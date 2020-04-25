@@ -197,9 +197,3 @@ function shuffle(a) {
   }
   return a
 }
-
-// Restart game Button Play
-// TO DO:
-
-// Code refactoring
-// TO DO:

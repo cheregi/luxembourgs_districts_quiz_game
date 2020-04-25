@@ -12,6 +12,11 @@ to lint the code use the following command
 
     npm run lint
 
+## TODOs
+
+* Restart game Button Play
+* Code refactoring
+
 ## license
 
 [MIT license](LICENSE)
