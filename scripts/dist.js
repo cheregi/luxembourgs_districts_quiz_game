@@ -1,7 +1,11 @@
+import pkg from '../package.json'
+
 export default {
   input: 'src/script.js',
   output: {
-    file: 'dist/index.js',
-    format: 'umd'
+    file: pkg.main,
+    format: 'umd',
+    name: pkg.name,
+    sourcemap: true
   }
 }

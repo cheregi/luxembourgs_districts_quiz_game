@@ -8,6 +8,10 @@ A fun quiz game to test your knowledge of luxembourgs districts
 
 ## development
 
+to update the build use the following command
+
+    npm run build
+
 to lint the code use the following command
 
     npm run lint
