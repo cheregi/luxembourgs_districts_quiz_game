@@ -1,6 +1,7 @@
-const citiesDisplay = document.querySelector('#cities')
-const score = document.querySelector('#score')
-const timer = document.querySelector('#timer')
+const citiesDisplay: HTMLElement = document.querySelector('#cities')
+const score: HTMLElement = document.querySelector('#score')
+const timer: HTMLElement = document.querySelector('#timer')
+
 
 // All the cities from the map
 const cities = [
@@ -56,11 +57,12 @@ const interval = setInterval(function setTimer() {
 }, 1000)
 
 // On click:
-const handlerEvent = function (e) {
+const handlerEvent = function (event: Event) {
   const correctAnswer = citiesToShuffle[count].toLowerCase()
   const color = 'Color'
   const correctAnswerId = (correctAnswer + color)
-  const userAnswer = e.target.id
+  const eventTarget = (event.target as HTMLElement)
+  const userAnswer = eventTarget.id
 
   const theCity = citiesToShuffle[count]
 
@@ -69,7 +71,7 @@ const handlerEvent = function (e) {
     // Answer guessed
     // for correct answer new color style is applied on the map for the district
     const colors = ['#7bc5e0', '#e5898e', '#faf8f2']
-    e.target.style.fill = colors[Math.floor(Math.random() * colors.length)]
+    eventTarget.style.fill = colors[Math.floor(Math.random() * colors.length)]
 
     // district index for finding the corresponding flag
     let cityIndex = -1
@@ -83,7 +85,8 @@ const handlerEvent = function (e) {
     flagForCorrectAnswer = citiesFlags[cityIndex]
 
     // img holder for every source url of the corresponding flag
-    const districtFlag = document.querySelector('.districtFlag').cloneNode()
+    const districtFlagNode: HTMLElement = document.querySelector('.districtFlag')
+    const districtFlag = <HTMLElement>districtFlagNode.cloneNode()
     districtFlag.setAttribute('src', flagForCorrectAnswer)
 
     // collect all the flags into container when user responds correctly
@@ -109,7 +112,7 @@ const handlerEvent = function (e) {
     // }
   } else {
     // Answer not guessed
-    const userWrongAnswer = e.target.id
+    const userWrongAnswer = eventTarget.id
     const badAnswerElement = document.getElementById(userWrongAnswer)
     // removing hover class
     badAnswerElement.setAttribute('class', 'cityColor')
@@ -155,7 +158,7 @@ function win() {
   clearInterval(interval)
   // citiesDisplay.style.color = "#d6373f";
   // citiesDisplay.innerHTML = "You won!";
-  const happyDuke = document.querySelector('.theDuke')
+  const happyDuke: HTMLImageElement = document.querySelector('.theDuke')
   happyDuke.src = 'happy-duke.gif'
   const infoNotNecessaryIfWin = document.querySelector('p')
   infoNotNecessaryIfWin.style.display = 'none'
@@ -180,14 +183,14 @@ function lose() {
   buttonPlay.setAttribute('class', 'btn-gradient cyan mini')
   buttonPlay.innerHTML = 'Play Again'
   moreSpaceY.append(buttonPlay)
-  const sadDuke = document.querySelector('.theDuke')
+  const sadDuke: HTMLImageElement = document.querySelector('.theDuke')
   sadDuke.src = 'wave-duke.gif'
-  const blockMap = document.querySelector('#luxembourg')
+  const blockMap: HTMLElement = document.querySelector('#luxembourg')
   blockMap.style.pointerEvents = 'none'
 }
 
 // Array shuffle algorithm from https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
-function shuffle(a) {
+function shuffle(a: string[]) {
   let j, x, i
   for (i = a.length - 1; i > 0; i--) {
     j = Math.floor(Math.random() * (i + 1))
