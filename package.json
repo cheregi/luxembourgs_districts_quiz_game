@@ -1,6 +1,6 @@
 {
   "name": "luxembourgs_districts_quiz_game",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A fun quiz game to test your knowledge of luxembourgs districts",
   "main": "dist/script.js",
   "scripts": {
