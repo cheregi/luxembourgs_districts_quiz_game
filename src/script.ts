@@ -167,6 +167,7 @@ function win() {
   const buttonPlay = document.createElement('a')
   buttonPlay.setAttribute('class', 'btn-gradient cyan mini')
   buttonPlay.innerHTML = 'Play Again'
+  buttonPlay.addEventListener("click", (e:Event) => window.location.reload());
   buttonContainer.append(buttonPlay)
 }
 
@@ -182,6 +183,7 @@ function lose() {
   const buttonPlay = document.createElement('a')
   buttonPlay.setAttribute('class', 'btn-gradient cyan mini')
   buttonPlay.innerHTML = 'Play Again'
+  buttonPlay.addEventListener("click", (e:Event) => window.location.reload());
   moreSpaceY.append(buttonPlay)
   const sadDuke: HTMLImageElement = document.querySelector('.theDuke')
   sadDuke.src = 'wave-duke.gif'

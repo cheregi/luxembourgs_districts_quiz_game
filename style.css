@@ -4,6 +4,11 @@
 /* Photo by 1905 Travellers on Unsplash 
 https://unsplash.com/photos/Y_kNtEogvsM */
 
+* {
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+}
 
 body {
     /* font-family: 'Josefin Sans'; */
@@ -21,6 +26,9 @@ span#cities {
 }
 #grid {
     font-family: 'Bitter'; 
+    display: grid;
+    grid-template-columns: -1fr -1fr;
+    /* grid-template-row: 100%; */
 }
 
 h1 {
@@ -29,6 +37,7 @@ h1 {
 
 p {
   font-size: 1.3em;
+  margin-bottom: 50px;
 }
 
 h1, h2 {
@@ -52,11 +61,6 @@ div#filter {
     position: fixed;
 }
 
-#grid {
-display: grid;
-grid-template-columns: -1fr -1fr;
-/* grid-template-row: 100%; */
-}
 
 #luxembourg {
     position: absolute;
@@ -73,10 +77,6 @@ grid-template-columns: -1fr -1fr;
 #text{
     text-align: right;
     margin-right:5%;
-}
-
-p {
-  margin-bottom: 50px;
 }
 
 .hidden{
@@ -97,14 +97,86 @@ p {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(85px, 1fr)); /* see notes below */
   grid-gap: 1em;
+  margin-left: 50%;
 }
 
-
- 
 img.districtFlag {
   width: 35%;
   height: auto;
   flex:  1 35%;
+}
+
+@media only screen and (max-width:800px) {
+  /* For tablets: */
+  /* #grid {
+    display: flex;
+    flex-direction: column;
+  } */
+
+  img.districtFlag {
+    width: 10%;
+    height: auto;
+    flex:  1 10%;
+  }
+
+  .theDuke{
+    width: 240px;
+  }
+
+  #flagContainer {
+    grid-template-columns: 209px 2fr;
+  }
+
+  h2{
+    margin: 30px 30px;
+  }
+
+  #luxembourg {
+    right: 200px;
+    top: 50px;
+  }
+
+}
+@media only screen and (max-width:500px) {
+  /* For mobile phones: */
+  #luxembourg {
+    position: relative;
+    right: 20%;
+  }
+  #grid {
+    display: flex;
+    flex-direction: column;
+  }
+  img.districtFlag {
+    width: 10%;
+    height: auto;
+    flex:  1 10%;
+  }
+
+  div#flagContainer {
+    margin-left: 0;
+  }
+
+  img.theDuke{
+    position: absolute;
+    top: 100px;
+    left: 228px;
+    width: 50%;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    position: absolute;
+    top: 0px;
+    font-size: 1em;
+  } 
+
+  #flagContainer {
+    grid-template-columns: 200px 1fr;
+  }
 }
   
 .btn-gradient.mini
@@ -124,8 +196,8 @@ img.districtFlag {
 	padding: 10px 30px;
 	display: inline-block;
 	position: relative;
-	border: 1px solid rgba(0,0,0,0.21);
-	border-bottom: 4px solid rgba(0,0,0,0.21);
+  border: 1px solid rgba(0,0,0,0.21);
+  border-bottom: 4px solid rgba(0,0,0,0.21);
 	border-radius: 4px;
 	text-shadow: 0 1px 0 rgba(0,0,0,0.15);
 }

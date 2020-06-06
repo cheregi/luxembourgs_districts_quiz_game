@@ -155,6 +155,7 @@
       var buttonPlay = document.createElement('a');
       buttonPlay.setAttribute('class', 'btn-gradient cyan mini');
       buttonPlay.innerHTML = 'Play Again';
+      buttonPlay.addEventListener("click", function (e) { return window.location.reload(); });
       buttonContainer.append(buttonPlay);
   }
   // Stop the timer and display lose message
@@ -169,6 +170,7 @@
       var buttonPlay = document.createElement('a');
       buttonPlay.setAttribute('class', 'btn-gradient cyan mini');
       buttonPlay.innerHTML = 'Play Again';
+      buttonPlay.addEventListener("click", function (e) { return window.location.reload(); });
       moreSpaceY.append(buttonPlay);
       var sadDuke = document.querySelector('.theDuke');
       sadDuke.src = 'wave-duke.gif';
